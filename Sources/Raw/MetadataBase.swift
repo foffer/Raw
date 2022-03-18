@@ -47,7 +47,7 @@ public class MetadataBase : NSObject {
     }
     private var childrenObjects: [String: MetadataBase?] = [:]
     internal func getChildren<T: MetadataBase>(key: String) -> T? {
-        return childrenObjects[key] as! T?
+        return childrenObjects[key] as? T
     }
     internal func setChildren<T: MetadataBase>(key: String, value: T?) {
         // using the subscript would remove the value from the dictionary. we want to keep it, this is an intentional remove
