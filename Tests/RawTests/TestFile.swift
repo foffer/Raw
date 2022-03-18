@@ -9,7 +9,6 @@ import Foundation
 import Raw
 enum TestFile: String, CaseIterable {
     case appleGPS = "TEST_APPLE_GPS.JPG"
-    case fuliJPG = "DSCF5353.jpeg"
     case eightBim = "TEST_8BIM.psd"
     case canon = "TEST_CANON.cr2"
     case ciff = "TEST_CIFF.CRW"
@@ -22,8 +21,16 @@ enum TestFile: String, CaseIterable {
     case png = "TEST_PNG.png"
     case unreadable = "TEST_unreadable.txt"
     
+    var fileName: String {
+        String(rawValue.split(separator: ".").first!)
+    }
+    
+    var fileExtension: String {
+        String(rawValue.split(separator: ".").last!)
+    }
+    
     var url: URL! {
-        Bundle(for: RawTests.self).url(forResource: rawValue, withExtension: nil, subdirectory: "files")
+        Bundle.module.url(forResource: fileName, withExtension: fileExtension)
     }
     
     func readMetadata() throws -> Metadata {

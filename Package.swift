@@ -34,9 +34,18 @@ let package = Package(
             name: "RawTests",
             dependencies: ["Raw"],
             resources: [
-                
-                // Test JPG, converted from a FUJI X-T2 RAW file
-                .process("files/DSCF5353.jpeg")
+                .copy("Files/TEST_8BIM.psd"),
+                .copy("Files/TEST_APPLE_GPS.JPG"),
+                .copy("Files/TEST_CANON.cr2"),
+                .copy("Files/TEST_CIFF.CRW"),
+                .copy("Files/TEST_DNG.dng"),
+                .copy("Files/TEST_GIF.gif"),
+                .copy("Files/TEST_IPTC_2.jpg"),
+                .copy("Files/TEST_IPTC.jpg"),
+                .copy("Files/TEST_NIKON.nef"),
+                .copy("Files/TEST_PICTURESTYLE.CR2"),
+                .copy("Files/TEST_PNG.png"),
+                .copy("Files/TEST_unreadable.txt"),
             ]),
     ]
 )
