@@ -90,8 +90,9 @@ public class Metadata: MetadataBase {
         let count = CGImageSourceGetCount(source)
         
         // create a new data object and write the new image into it
+        
         let data = NSMutableData()
-        guard let destination = CGImageDestinationCreateWithData(data as CFMutableData, sourceImageType, count, nil) else {
+        guard let destination = CGImageDestinationCreateWithData(data as CFMutableData, UTType.rawImage as! CFString, count, nil) else {
             throw Error.cannotCreateDestination
         }
         
